@@ -1,0 +1,5 @@
+.idea
+config.local.toml
+main
+.editorconfig
+public/node_modules

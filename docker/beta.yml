@@ -1,0 +1,36 @@
+beginning-mysql:
+    build: ./mysql
+    privileged: true
+    restart: always
+    ports:
+        - "4306:3306"
+    volumes:
+        - ./mysql/data:/var/lib/mysql
+        - ./mysql/my.cnf:/etc/mysql/my.cnf
+        - ./mysql/logs:/var/log/mysql
+        - /etc/localtime:/etc/localtime:ro
+    environment:
+        - MYSQL_ROOT_PASSWORD=MySQL@9527
+
+beginning-redis:
+    build: ./redis
+    privileged: true
+    restart: always
+    ports:
+        - "7379:6379"
+    volumes:
+        - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+        - ./redis/data:/data
+
+beginning-rabbit-mq:
+    image: registry.cn-qingdao.aliyuncs.com/herui-public/rabbitmq
+    environment:
+        - RABBITMQ_QUEUE=default
+        - RABBITMQ_HOST=rabbitmq
+        - RABBITMQ_PORT=5672
+        - RABBITMQ_DEFAULT_VHOST=/
+        - RABBITMQ_DEFAULT_USER=admin
+        - RABBITMQ_DEFAULT_PASS=Rabbit@9527
+    ports:
+        - 6672:5672
+        - 16672:15672

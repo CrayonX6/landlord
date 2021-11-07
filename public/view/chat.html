@@ -1,0 +1,36 @@
+<html lang="zh-CN">
+<head>
+    <title>全员-聊天室</title>
+    <link rel="stylesheet" type="text/css" href="../node_modules/ant-design-vue/dist/antd.min.css">
+    <link rel="stylesheet" type="text/css" href="../dist/src-css/chat.css">
+    <script type="application/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="application/javascript" src="../node_modules/moment/min/moment-with-locales.min.js"></script>
+    <script type="application/javascript"
+            src="../node_modules/reconnecting-websocket/dist/reconnecting-websocket-iife.min.js"></script>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+    <script type="application/javascript" src="../node_modules/ant-design-vue/dist/antd-with-locales.min.js"></script>
+    <script type="application/javascript" src="../dist/src-js/foundation.js"></script>
+    <script type="application/javascript" src="../dist/src-js/web.js"></script>
+    <script type="application/javascript" src="../dist/src-js/chat.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+
+<body>
+<div class="bsw-vue container">
+    <template>
+        <h3>全员-聊天室 (<span>{{ online }}</span>) <sup>{{ nickname }}</sup></h3>
+        <div id="chat">
+            <p v-for="item in chatHistory" :class="{ online: item.pOnlineClass, offline: item.pOfflineClass }">
+                <b>{{ item.bText }}</b>
+                {{ item.pText }}
+            </p>
+        </div>
+        <a-form layout="inline" :form="form" @submit="doChat">
+            <a-form-item label="">
+                <a-input size="large" v-model="chat" :auto-focus="true" placeholder="说点什么呢，按回车发送"></a-input>
+            </a-form-item>
+        </a-form>
+    </template>
+</div>
+</body>
+</html>

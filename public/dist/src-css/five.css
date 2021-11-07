@@ -1,0 +1,152 @@
+div.container {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+div.container h3 {
+  text-align: center;
+}
+div.container div.checkerboard {
+  width: 780px;
+  height: 780px;
+  margin: 0 auto;
+  background: url("../../img/bg.png") repeat;
+  border-radius: 10px;
+  border: 1px solid #cab7a8;
+  box-shadow: 0 0 10px 2px #b3b3b3;
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
+div.container div.checkerboard div.lattice {
+  width: 702px;
+  height: 702px;
+  position: absolute;
+  left: 39px;
+  top: 39px;
+  border: 1px solid rgba(250, 250, 250, 0.65);
+}
+div.container div.checkerboard div.lattice > div {
+  width: 50px;
+  height: 50px;
+  float: left;
+  border: 1px solid rgba(250, 250, 250, 0.65);
+}
+div.container div.checkerboard div.lattice > span {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background: #fbfbfb;
+  position: absolute;
+}
+div.container div.checkerboard div.lattice > span.dot-1 {
+  left: 146px;
+  top: 146px;
+}
+div.container div.checkerboard div.lattice > span.dot-2 {
+  right: 146px;
+  top: 146px;
+}
+div.container div.checkerboard div.lattice > span.dot-3 {
+  left: 346px;
+  top: 346px;
+}
+div.container div.checkerboard div.lattice > span.dot-4 {
+  left: 146px;
+  bottom: 146px;
+}
+div.container div.checkerboard div.lattice > span.dot-5 {
+  right: 146px;
+  bottom: 146px;
+}
+div.container div.checkerboard div.down-chess {
+  width: 750px;
+  height: 750px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+div.container div.checkerboard div.down-chess > div {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 100%;
+}
+div.container div.checkerboard div.down-chess > div.will {
+  background: rgba(236, 234, 234, 0.2);
+  box-shadow: 0 0 10px 1px #ffffff;
+}
+div.container div.data {
+  position: absolute;
+  left: 860px;
+  top: 30px;
+}
+div.container div.data > div.white,
+div.container div.data > div.black {
+  width: 300px;
+  height: 160px;
+  background: #f5f5f5;
+  margin-top: 60px;
+  border-radius: 4px;
+  overflow: auto;
+  border: 1px solid transparent;
+  box-shadow: 0 0 8px 0 #c7c7c7;
+}
+div.container div.data > div.white.current,
+div.container div.data > div.black.current {
+  animation: next-step-breathing 2s linear infinite;
+}
+div.container div.data > div.white .name,
+div.container div.data > div.black .name {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: #f1f1f1;
+  text-align: center;
+  font-size: 16px;
+}
+div.container div.data > div.white .chess,
+div.container div.data > div.black .chess {
+  float: left;
+  margin: 40px;
+}
+div.container div.data > div.white .step,
+div.container div.data > div.black .step {
+  float: left;
+  height: 120px;
+  line-height: 120px;
+  font-size: 20px;
+}
+div.container .chess {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+div.container .chess.white {
+  background: #EEE;
+  box-shadow: 0.01rem 0.01rem 0.1rem rgba(0, 0, 0, 0.5), 0 0 0.05rem rgba(240, 240, 240, 0.5), 0.05rem 0.05rem 0.01rem rgba(255, 255, 255, 0.15) inset, 0.1rem 0.1rem 0.1rem rgba(255, 255, 255, 0.05) inset, -0.05rem -0.05rem 0.25rem rgba(0, 0, 0, 0.15) inset, -0.1rem -0.1rem 0.35rem rgba(0, 0, 0, 0.05) inset;
+}
+div.container .chess.black {
+  background: #000;
+  box-shadow: inset 2px 2px 8px 0 #b1b1b1;
+}
+div.container .chess.abs {
+  position: absolute;
+  z-index: 99;
+  cursor: pointer;
+}
+@keyframes next-step-breathing {
+  0% {
+    border: 1px solid rgba(0, 128, 0, 0.03);
+  }
+  40% {
+    border: 1px solid rgba(0, 128, 0, 0.7);
+  }
+  60% {
+    border: 1px solid rgba(0, 128, 0, 0.03);
+  }
+}
+/*# sourceMappingURL=five.css.map */

@@ -1,0 +1,47 @@
+<html lang="zh-CN">
+<head>
+    <title>对弈-五子棋</title>
+    <link rel="stylesheet" type="text/css" href="../node_modules/ant-design-vue/dist/antd.min.css">
+    <link rel="stylesheet" type="text/css" href="../dist/src-css/five.css">
+    <script type="application/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="application/javascript" src="../node_modules/moment/min/moment-with-locales.min.js"></script>
+    <script type="application/javascript"
+            src="../node_modules/reconnecting-websocket/dist/reconnecting-websocket-iife.min.js"></script>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+    <script type="application/javascript" src="../node_modules/ant-design-vue/dist/antd-with-locales.min.js"></script>
+    <script type="application/javascript" src="../dist/src-js/foundation.js"></script>
+    <script type="application/javascript" src="../dist/src-js/web.js"></script>
+    <script type="application/javascript" src="../dist/src-js/five.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+
+<body>
+<div class="bsw-vue container">
+    <template>
+        <div class="checkerboard">
+            <div class="lattice">
+                <div v-for="i in 196"></div>
+                <span v-for="j in 5" :class=`dot-${j}`></span>
+            </div>
+            <div class="down-chess">
+                <div v-for="i in 225"
+                     :class="{ will: i == willDown, chess: chessHistory[i], black: chessHistory[i] == 'black', white: chessHistory[i] == 'white' }"></div>
+            </div>
+        </div>
+        <div class="data">
+            <h3>对弈-五子棋 (<span>房号:{{ roomNumber }} 人数:{{ online }}</span>) <sup>{{ nickname }}</sup></h3>
+            <div :class="{ black: true, isMe: blackPlayer.player_id == userId, current: nextColor == 'black' }">
+                <div class="name">{{ blackPlayer.nickname || "(Nil)" }}</div>
+                <div class="chess black"></div>
+                <div class="step">已走 {{ blackPlayer.chess_step || 0 }} 手</div>
+            </div>
+            <div :class="{ white: true, isMe: whitePlayer.player_id == userId, current: nextColor == 'white' }">
+                <div class="name">{{ whitePlayer.nickname || "Waiting..." }}</div>
+                <div class="chess white"></div>
+                <div class="step">已走 {{ whitePlayer.chess_step || 0 }} 手</div>
+            </div>
+        </div>
+    </template>
+</div>
+</body>
+</html>
